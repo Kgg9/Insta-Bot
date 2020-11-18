@@ -46,7 +46,7 @@ class login:
 
 
 
-login('fish_can_drown', 'AwAw!234')
+login('fish_can_drown', '')
 
 class autoFollowSugs:
     def __init__(self):
