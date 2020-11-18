@@ -58,27 +58,31 @@ class autoFollowSugs:
             sleep(1)
 
 
-class fllwListCmnt:
+class commentsHomePage:
     def __init__(self, *comments):
 
+        # makes a list of all the comments the user entered
         self.comments = list(comments)
         length = len(self.comments)
 
-        imgAlt = driver.find_elements_by_tag_name("img")
-        fPic = imgAlt[0]
-        lPic = imgAlt[-1]
+        # finds all the comment boxes to activate
+        comments = driver.find_elements_by_class_name("RxpZH")
 
-        for i in imgAlt:
-            while(i!=lPic):
-                driver.find_element_by_class_name("RxpZH").click()
-                sleep(1)
-                cmntBox = driver.find_element_by_css_selector("form textarea").send_keys(self.comments[randint(0, length-1)])
-                sleep(2)
-                driver.find_element_by_xpath("//button[@type='submit']").click()
-        fPic = lPic
+
+        for i, j in enumerate(comments):
+            # activates the comment boxes
+            j.click()
+            sleep(2)
+            #clicks on the comment boxes
+            cmtbox = driver.find_elements_by_css_selector("form textarea")
+            cmtbox[i].send_keys(self.comments[randint(0, length-1)])
+            sleep(2)
+            # clicks the post button on the comment buttons
+            submit = driver.find_elements_by_xpath("//button[@type='submit']")
+            submit[i].click()
+            sleep(3)
+
         driver.refresh()
 
 
 
-
-fllwListCmnt("bruh", "okurrrr", "boom")
