@@ -1,2 +1,2 @@
 # Insta-Bot
-A bot I made for Instagram Bruh
+A bot I made for Instagram 
